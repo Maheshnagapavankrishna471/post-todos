@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 // import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 const Signup = () => {
     // const navigate = useNavigate()
     // var x='http://localhost:7171/register'
@@ -11,7 +12,6 @@ const Signup = () => {
         // console.log(form)
     }
     let Api=async()=>{
-        // e.preventDefault()
        try{
         await axios.post('http://localhost:7171/register',form)
         console.log('data sent')
@@ -26,6 +26,7 @@ const Signup = () => {
   return (
     <>
     {/* <h1>these is signup page</h1> */}
+    <button className='btn btn-warning'><Link to ="/">back</Link></button>
     <div className=' main1 container' >
        
       <form className="main">

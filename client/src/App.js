@@ -4,16 +4,22 @@ import Signup from './Signup'
 import Login from './Login'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Home from './Home';
+import AddTodo from './AddTodo';
+import EditTodo from './EditTodo';
 const App = () => {
   return (
     <div>
       <ToastContainer />
      <BrowserRouter>
      <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/addtodo' element={<AddTodo/>}></Route>
+      <Route path='/updatetodo/:id' element={<EditTodo/>}></Route>
       <Route path='/signup' element={<Signup/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
      </Routes>
-</BrowserRouter> 
+</BrowserRouter>
     </div>
   )
 }

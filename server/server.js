@@ -55,7 +55,7 @@ app.post("/login",async(req,res)=>{
         }
         jwt.sign(payload, "jwtSecret", {expiresIn:"54m"},(err,token) =>{
             if(err) throw err
-            return res.json({token,payload})
+            return res.json({token,payload,id:exists._id})
         })
     }
     catch (e) {
@@ -72,7 +72,6 @@ app.get("/one/:id", middleware, async (req, res) => {
         if (!user) {
             return res.status(404).send("User not found");
         }
-
         res.send(user); // Send the entire user object with populated 'todo' array
     } catch (err) {
         res.status(500).send(err.message);
@@ -80,10 +79,32 @@ app.get("/one/:id", middleware, async (req, res) => {
 });
 
 
+// app.get("/todos",async(req,res)=>{
+//     try{
+//         console.log(req.headers,'these are req headers ')
+//         let{authtoken} = req.headers
+//         const verifyToken = jwt.verify(authtoken,"jwtSecret")
+
+//         const userId = verifyToken.user.id
+//         const userTodos = await todoConnection.find({data:userId})
+
+//         return res.status(200).json({
+//             message:"working",
+//             todos:{
+//                 userTodos
+//             }
+//         })
+   
+//     }catch(error){
+//         return res.status(400).json({
+//             message:error.message
+//         })
+//     }
+// })
+
 
 app.post("/addtodo",async(req,res)=>{
     try{
-        
         // await todoConnection.create(req.body);
         var { todo,data } = req.body
         var todo1 = new todoConnection(
@@ -116,8 +137,6 @@ app.delete("/deletetodo/:id",async(req,res)=>{
     } catch (e){
         console.log(e)
     }
-        
-
 });
 
 app.get("/updatetodo/:id",async(req,res)=>{
