@@ -33,20 +33,21 @@ const EditTodo = () => {
         e.preventDefault()
         await axios.patch(`http://localhost:7171/updatetodo/${id}`, list)
         setList({todo:"",data:id})
-        // navigate('/')
+      
     }
   return (
     <div>
       <button className='btn btn-warning'><Link to ="/">back</Link></button>
-        <h1>edit todo's here</h1>
+        <div className='main1 container'>
         <form className="main">
-        <div style={{width:"300px",border:"2px solid red", padding:"15px"}}>
-        <label for="fname">TODO'S:</label> 
+        <div style={{width:"300px",border:"2px solid grey", padding:"15px",borderRadius:'10px',boxShadow:'2px 2px black'}}>
+        <h1 className='text-red-800 text-2xl m-2'><span className='text-primary'>EDIT</span> TODO</h1>
         <input type="text" className='form-control' onChange={handleChange} name='todo' placeholder='edit todo here' value={list.todo}/>
         <br/>
-        <input type="submit"  onClick={handleSubmit}  value={"submit"}/>
+        <input type="submit" className='text-blue-800  btn btn-info'  onClick={handleSubmit}  value={"submit"}/>
         </div>
       </form>
+      </div>
       
     </div>
   )

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Nav from './Nav'
 
 const Login = () => {
     const[log,setLog] = useState({email:"",password:""})
@@ -23,16 +24,18 @@ const Login = () => {
     }
   return (
     <>
+    <Nav isLoggedIn={false} isLoginPage={true} />
     <button className='btn btn-warning'><Link to ="/">back</Link></button>
-    <div className=' main1 container' >
-    <form className="main">
-      <div style={{width:"300px",border:"2px solid red", padding:"15px"}}>
+    <div className=' main1 container'  >
+    <form className="main" style={{}}>
+      <div style={{width:"300px",border:"2px solid grey", padding:"15px",borderRadius:'10px',boxShadow:'2px 2px black'}}>
+      <h1 className='text-red-800 text-4xl m-2'><span className='text-primary'>L</span>ogin</h1>
 
-      <input type="email" className='form-control'  onChange={handleChange} name='email'  placeholder='email'/>
+      <input type="email" className='form-control '  onChange={handleChange} name='email'  placeholder='email'/>
       <br />
       <input type="password" className='form-control'  onChange={handleChange} name='password' placeholder='password' />
       <br />
-      <input type="submit"  onClick={handleSubmit}  value={"submit"}/>
+      <input type="submit" className='text-blue-800  btn btn-info'  onClick={handleSubmit}  value={"submit"}/>
       </div>
     </form>
   </div>
@@ -41,3 +44,4 @@ const Login = () => {
 }
 
 export default Login
+

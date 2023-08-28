@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
+
+.main1{
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+ height: 650px;
+}
+li{
+  list-style-type: none;
+  margin-top: 11px;
+  /* text-shadow: 1.3px 1.3px  rgb(124, 114, 114); */
+}
+ul{
+  display: flex;
+  justify-content: space-evenly;
+ /* padding-top: 5px; */
+}
