@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 const EditTodo = () => {
+    const navigate = useNavigate()
     const {id} = useParams()
     const [list, setList] = useState({
         todo:"",
@@ -33,6 +34,7 @@ const EditTodo = () => {
         e.preventDefault()
         await axios.patch(`http://localhost:7171/updatetodo/${id}`, list)
         setList({todo:"",data:id})
+        navigate("/addtodo")
       
     }
   return (

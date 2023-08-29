@@ -8,6 +8,7 @@ const Home = () => {
 
     return (
         <>  
+        
             {/* <div className='navbar'>
                 <nav class="navbar bg-body-tertiary">
                     <form class="container-fluid justify-content-start">
@@ -37,6 +38,9 @@ const Home = () => {
             </div> */}
 
         <Nav log={true}/>
+        <div className='container'><p className='hover-word'><h1>WELCOME TO TODO APP</h1></p></div>
+        
+        
         </>
     )
 }

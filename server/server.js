@@ -10,11 +10,11 @@ const loginandsignup = require("./model/loginandsignup");
 const app = express()
 app.use(cors())
 app.use(express.json());
-const DB_URL =`mongodb://127.0.0.1:27017/todoLIST`;
+const DB_URL =`mongodb+srv://mahesh:1234@cluster0.kniegx7.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(DB_URL).then((db,err) => {
     if (err) throw err
     else{
-        console.log("DB is connected")
+        console.log("TODO DB is connected")
     }
 });
 

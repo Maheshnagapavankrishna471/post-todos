@@ -10,8 +10,9 @@ const Signup = () => {
         setForm({...form,[e.target.name]:e.target.value})
         // console.log(form)
     }
-    let Api=async()=>{
+    let Api=async(e)=>{
        try{
+        e.preventDefault()
          await axios.post('http://localhost:7171/register',form)
         console.log('data sent')
         navigate('/login');

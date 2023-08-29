@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities; 
 
+body{
+  background-image: linear-gradient(to bottom right, rgb(135, 215, 216), rgb(177, 133, 165));
+  /* background-repeat: no-repeat; */
+  background-image: url(https://cdn.wallpapersafari.com/7/95/qauZty.jpg);
+}
 .main1{
   display: flex;
   justify-content: center;
@@ -17,4 +22,30 @@ ul{
   display: flex;
   justify-content: space-evenly;
  /* padding-top: 5px; */
+}
+.text-light{
+  cursor: pointer;
+}
+.head1{
+  display: flex;
+}
+h1{
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .container{
+  border: 2px solid red;
+} */
+.hover-word{
+  color: rgb(231, 241, 34);
+  font-size: 24px;
+  font-weight: bold;
+}
+.hover-word h1:hover{
+  font-size: 30px;
+  transition: font-size 0.2s;
+  cursor: pointer;
+  color: azure;
 }
