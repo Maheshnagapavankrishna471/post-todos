@@ -37,6 +37,7 @@ const Home = () => {
             </div> */}
 
         <Nav log={true}/>
+        {/* hi this is ahmed */}
         </>
     )
 }
