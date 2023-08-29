@@ -41,26 +41,29 @@ const AddTodo = () => {
     }
   }
 
-  const deleteTodo = async (x) => {
+
+
+const deleteTodo = async (x) => {
+  const confirmDelete = window.confirm("Are you sure you want to delete this item?") 
+  if (confirmDelete) {
     try {
-      await axios.delete(`http://localhost:7171/deletetodo/${x}`)
-      alert("Are u sure want to delete this item !!!!")
-      apiOne()
+      await axios.delete(`http://localhost:7171/deletetodo/${x}`) 
+      apiOne() 
     } catch (err) {
       console.log(err)
     }
   }
-
-
+}
   useEffect(() => {
     apiOne()
   }, [])
   return (
     <>
       <Nav isLoggedIn={true} isAddTodoPage={true} />
-      <button className='btn btn-warning'><Link to="/">back</Link></button>
-      <div>
-        <div className='main1 container'>
+      {/* <button className='btn btn-warning'><Link to="/">back</Link></button> */}
+     
+       <div  className='container'>
+       <div className='main1 '>
         <form className="main">
           <div style={{ width: "300px", border: "2px solid grey", padding: "15px", borderRadius: '10px', boxShadow: '2px 2px black' }}>
             <h1 className='text-red-800 text-2xl m-2'><span className='text-primary'>T</span>ODO'S</h1>
@@ -69,21 +72,35 @@ const AddTodo = () => {
             <input type="submit" className='text-blue-800  btn btn-info' onClick={Api} value={"submit"} />
           </div>
         </form>
+       </div>
         
      
-      {
+  
+    <div className='d-flex justify-content-center row'>
+  {
         todo.map((val) => {
           return (
-            <li>{val.todo} <span><button onClick={() => deleteTodo(val._id)}>delete</button></span> <Link to={`/updatetodo/${val._id}`} className="btn btn-primary">Edit</Link>  </li>
-            // card
-
+          
+             <div className='col-lg-6 ca bg-transparent'>
+             <div className='cah1'>
+             <h1 className='font-bold'>{val.todo}</h1>
+             </div>
+             <div className='forbtns'>
+             <button className='btn btn-outline-danger' onClick={() => deleteTodo(val._id)}><i class="fa-solid fa-trash"></i></button> 
+             <Link to={`/updatetodo/${val._id}`} className="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></Link> 
+             </div>
+              </div>
+          
           )
         })
       }
+
+
+    </div>
     
 
     </div>
-    </div>
+   
     </>
 
       )
