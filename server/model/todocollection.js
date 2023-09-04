@@ -3,6 +3,7 @@ const todoApp = new mongoose.Schema({
     todo:{
         type:String,
         trim:true,
+        required:true
     },
     data:{
         type:mongoose.Schema.Types.ObjectId,

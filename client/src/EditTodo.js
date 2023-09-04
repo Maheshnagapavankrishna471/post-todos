@@ -16,7 +16,7 @@ const EditTodo = () => {
     console.log(id,"these is id")
     const Api = async()=>{
         try {
-          const response = await axios.get(`http://localhost:7171/updatetodo/${id}`)
+          const response = await axios.get(`https://todos-zsu4.onrender.com/updatetodo/${id}`)
           console.log(response.data);
             const values = response.data
             console.log(values)
@@ -34,7 +34,7 @@ const EditTodo = () => {
       }
       const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.patch(`http://localhost:7171/updatetodo/${id}`, list)
+        await axios.patch(`https://todos-zsu4.onrender.com/updatetodo/${id}`, list)
         setList({todo:"",data:id})
         navigate("/addtodo")
         toast("edited successfully📝")

@@ -24,7 +24,7 @@ const Signup = () => {
   let Api = async (e) => {
     try {
       e.preventDefault();
-      const response = await axios.post('http://localhost:7171/register', form);
+      const response = await axios.post('https://todos-zsu4.onrender.com/register', form);
       console.log('data sent');
       navigate('/login');
       toast('SignUp Successfully👌');

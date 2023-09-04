@@ -18,10 +18,12 @@ const AddTodo = () => {
     setList({ ...list, [e.target.name]: e.target.value })
   }
 
+
+
   const Api = async () => {
     try {
      
-      await axios.post(`http://localhost:7171/addtodo`, list)
+      await axios.post(`https://todos-zsu4.onrender.com/addtodo`, list)
       toast("Todo Add Successfully⭐")
       // alert("data added successfully")
       navigate("/addtodo")
@@ -33,14 +35,19 @@ const AddTodo = () => {
       console.log(err)
     }
   }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    Api()
+}
   const apiOne = async () => {
     try {
-      const data = await axios.get(`http://localhost:7171/one/${id}`, {
+      const data = await axios.get(`https://todos-zsu4.onrender.com/one/${id}`, {
         headers: {
           "x-token": token
         }
       })
-      console.log(data.data.td)
+      console.log(data.data.td,'this is todos')
       SetTodo(data.data.td)
     }
     catch (err) {
@@ -54,7 +61,7 @@ const deleteTodo = async (x) => {
   const confirmDelete = window.confirm("Are you sure you want to delete this item?") 
   if (confirmDelete) {
     try {
-      await axios.delete(`http://localhost:7171/deletetodo/${x}`) 
+      await axios.delete(`https://todos-zsu4.onrender.com/deletetodo/${x}`) 
       apiOne() 
     } catch (err) {
       console.log(err)
@@ -77,7 +84,7 @@ const deleteTodo = async (x) => {
             <h1 className='text-red-800 text-2xl m-2'><span className='text-primary'>T</span>ODO'S</h1>
             <input type="text" className='form-control' onChange={handleChange} name='todo' placeholder='enter todo here' />
             <br />
-            <input type="submit" className='text-blue-800  btn btn-info' onClick={()=>Api()} value={"submit"} />
+            <input onClick={handleSubmit} type="submit" className='text-blue-800  btn btn-info' />
           </div>
         </form>
        </div>
