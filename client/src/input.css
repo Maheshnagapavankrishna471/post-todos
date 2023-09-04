@@ -5,24 +5,25 @@
 .main1{
   display: flex;
   justify-content: center;
-  /* align-items: center; */
  height: 200px;
+ margin-top: 20px;
 }
 .ca{
   width: 300px;
-  height: 300px;
+  height: 180px;
   border: 1px solid black;
   border-radius: 10px 10px;
-  box-shadow: 1px 1px 10px 1px  black;
+  box-shadow: 1px 1px 10px 1px  rgb(69, 66, 66);
   margin: 5px;
   /* background-color: 0 0 0 0; */
   /* background-color: green; */
 
 }
 .cah1{
-  height: 250px;
+  height: 100px;
   text-align: center;
   overflow: hidden;
+  margin-top: 30px;
 
 }
 .forbtns{
@@ -41,3 +42,33 @@ ul{
   justify-content: space-evenly;
  /* padding-top: 5px; */
 }
+body{
+  background-image:url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?auto=compress&cs=tinysrgb&w=800%27');
+ background-size: cover;
+}
+.home{
+  
+}
+
+.hover-word{
+  color: rgb(59, 63, 63);
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  margin-top: 200px;
+}
+.hover-word h1:hover{
+  font-size: 75px;
+  transition: font-size 0.5s;
+  /* color: rgb(189, 176, 189); */
+  color: rgb(155, 22, 80);
+}
+p::first-letter {
+  font-size: 200%;
+  color: #06000b;
+}
+

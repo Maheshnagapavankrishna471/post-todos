@@ -2,10 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Nav from './Nav'
-// import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 const AddTodo = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const id = localStorage.getItem('id')
   const token = localStorage.getItem('token')
   const [todo, SetTodo] = useState([])
@@ -19,8 +20,14 @@ const AddTodo = () => {
 
   const Api = async () => {
     try {
+     
       await axios.post(`http://localhost:7171/addtodo`, list)
+      toast("Todo Add Successfully⭐")
+      // alert("data added successfully")
+      navigate("/addtodo")
       console.log("data sent")
+      
+      
     }
     catch (err) {
       console.log(err)
@@ -55,7 +62,8 @@ const deleteTodo = async (x) => {
   }
 }
   useEffect(() => {
-    apiOne()
+    apiOne();
+    
   }, [])
   return (
     <>
@@ -69,7 +77,7 @@ const deleteTodo = async (x) => {
             <h1 className='text-red-800 text-2xl m-2'><span className='text-primary'>T</span>ODO'S</h1>
             <input type="text" className='form-control' onChange={handleChange} name='todo' placeholder='enter todo here' />
             <br />
-            <input type="submit" className='text-blue-800  btn btn-info' onClick={Api} value={"submit"} />
+            <input type="submit" className='text-blue-800  btn btn-info' onClick={()=>Api()} value={"submit"} />
           </div>
         </form>
        </div>

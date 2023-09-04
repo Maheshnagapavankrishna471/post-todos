@@ -1,10 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
+// import { Link } from 'react-router-dom'
+
 
 const EditTodo = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const [list, setList] = useState({
         todo:"",
         data:id,
@@ -33,11 +36,13 @@ const EditTodo = () => {
         e.preventDefault()
         await axios.patch(`http://localhost:7171/updatetodo/${id}`, list)
         setList({todo:"",data:id})
+        navigate("/addtodo")
+        toast("edited successfully📝")
       
     }
   return (
     <div>
-      <button className='btn btn-warning'><Link to ="/">back</Link></button>
+      {/* <button className='btn btn-warning'><Link to ="/">back</Link></button> */}
         <div className='main1 container'>
         <form className="main">
         <div style={{width:"300px",border:"2px solid grey", padding:"15px",borderRadius:'10px',boxShadow:'2px 2px black'}}>

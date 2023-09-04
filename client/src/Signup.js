@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 {/* <Nav isLoggedIn={false} isLoginPage={true} /> */}
 const Signup = () => {
@@ -39,9 +39,9 @@ const Signup = () => {
   return (
     <>
       <Nav isLoggedIn={false} isRegisterPage={true} />
-      <button className="btn btn-warning">
+      {/* <button className="btn btn-warning">
         <Link to="/">back</Link>
-      </button>
+      </button> */}
       <div className="main1 container">
         <form className="main">
           <div

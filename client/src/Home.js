@@ -37,7 +37,29 @@ const Home = () => {
             </div> */}
 
         <Nav log={true}/>
-        {/* hi this is ahmed */}
+
+        <div className='home'>
+            <p className='hover-word'>
+                <p>W</p>
+                <h1>E</h1>
+                <h1>L</h1>
+                <h1>C</h1>
+                <h1>O</h1>
+                <h1>M</h1>
+                <h1>E</h1>
+                <br></br>
+                {/* <p>T</p>
+                <h1>O</h1>
+                <br></br> */}
+                <p>T</p>
+                <h1>O</h1>
+                <h1>D</h1>
+                <h1>O</h1>
+                <p>A</p>
+                <h1>P</h1>
+                <h1>P</h1>
+            </p>
+        </div>
         </>
     )
 }

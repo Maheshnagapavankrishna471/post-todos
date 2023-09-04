@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Nav from './Nav'
-
+import {toast} from 'react-toastify'
 const Login = () => {
     const[log,setLog] = useState({email:"",password:""})
     const [emailErr,setEmailErr]=useState('')
@@ -36,6 +36,7 @@ const Login = () => {
               localStorage.setItem('token',response.data.token)
               localStorage.setItem('id',response.data.id)
               navigate('/addtodo')
+              toast("login successfully 👌")
             }
         }
         catch(err){
@@ -45,7 +46,7 @@ const Login = () => {
   return (
     <>
     <Nav isLoggedIn={false} isLoginPage={true} />
-    <button className='btn btn-warning'><Link to ="/">back</Link></button>
+    {/* <button className='btn btn-warning'><Link to ="/">back</Link></button> */}
     <div className=' main1 container'>
     <form className="main" style={{}}>
       <div style={{width:"300px",border:"2px solid grey", padding:"15px",borderRadius:'10px',boxShadow:'2px 2px black'}}>
