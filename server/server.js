@@ -10,8 +10,7 @@ const loginandsignup = require("./model/loginandsignup")
 const app = express()
 app.use(cors())
 app.use(express.json())  
-const DB_URL =`mongodb+srv://mahesh:1234@cluster0.kniegx7.mongodb.net/?retryWrites=true&w=majority`  
-mongoose.connect(DB_URL).then((db,err) => {
+mongoose.connect(process.env.DB_URL).then((db,err) => {
     if (err) throw err
     else{
         console.log("DB is connected")
