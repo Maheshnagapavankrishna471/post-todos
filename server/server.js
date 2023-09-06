@@ -1,5 +1,6 @@
 const todoConnection = require("./model/todocollection")  
-const authConnection = require("./model/loginandsignup")  
+const authConnection = require("./model/loginandsignup")
+// const dotenv = require("dotenv")  
 const middleware = require("./middleware")
 const mongoose = require("mongoose")  
 const jwt = require ("jsonwebtoken")  
@@ -7,10 +8,14 @@ const cors=require('cors')
 const express = require("express")  
 const loginandsignup = require("./model/loginandsignup")  
 
+
+
 const app = express()
 app.use(cors())
-app.use(express.json())  
-mongoose.connect(process.env.DB_URL).then((db,err) => {
+// dotenv.config()
+app.use(express.json()) 
+const DB_URL = 'mongodb+srv://mahesh:1234@cluster0.kniegx7.mongodb.net/?retryWrites=true&w=majority' 
+mongoose.connect(DB_URL).then((db,err) => {
     if (err) throw err
     else{
         console.log("DB is connected")
@@ -61,13 +66,13 @@ app.post("/login",async(req,res)=>{
         if (!exists) {
             return res.json({M:"please enter a valid email"})
         }
-        // else if(exists==null){
-        //     return res.status(404).send("please enter the email")
-        // }
-        // if(!exists&&password=="")
-        // {
-        //     return res.json({M:"please enter a valid email",m:"passwod incorrect"})
-        // }
+        else if(exists==null){
+            return res.status(404).send("please enter the email")
+        }
+        if(!exists&&password=="")
+        {
+            return res.json({M:"please enter a valid email",m:"passwod incorrect"})
+        }
         else if(exists.password !== password){
             return res.json({M:"passwod incorrect"})
         }
